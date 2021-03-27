@@ -14,6 +14,7 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Prod_ID")
 	private Long Id;
+	
 	@Column(name = "Prod_NAME")
 	private String Name;
 	
