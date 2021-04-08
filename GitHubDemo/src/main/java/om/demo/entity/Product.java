@@ -2,7 +2,12 @@ package om.demo.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="T_PRODUCT")
@@ -17,20 +22,15 @@ public class Product implements Serializable {
 	
 	@Column(name = "Prod_NAME")
 	private String Name;
-	
-	@Column(name = "Prod_PRICE")
-	private String Price;
 
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(Long id, String name, String price) {
+	public Product(String name) {
 		super();
-		Id = id;
 		Name = name;
-		Price = price;
 	}
 
 	public Long getId() {
@@ -49,14 +49,6 @@ public class Product implements Serializable {
 		Name = name;
 	}
 
-	public String getPrice() {
-		return Price;
-	}
-
-	public void setPrice(String price) {
-		Price = price;
-	}
-
 	public static Long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -67,7 +59,6 @@ public class Product implements Serializable {
 		int result = 1;
 		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
 		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
-		result = prime * result + ((Price == null) ? 0 : Price.hashCode());
 		return result;
 	}
 
@@ -90,20 +81,13 @@ public class Product implements Serializable {
 				return false;
 		} else if (!Name.equals(other.Name))
 			return false;
-		if (Price == null) {
-			if (other.Price != null)
-				return false;
-		} else if (!Price.equals(other.Price))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [Id=" + Id + ", Name=" + Name + ", Price=" + Price + "]";
+		return "Product [Id=" + Id + ", Name=" + Name + "]";
 	}
 	
-	
-
 	
 }
